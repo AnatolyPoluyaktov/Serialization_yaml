@@ -1,9 +1,10 @@
+#include "yaml-cpp/yaml.h"
 #include <iostream>
-#include "document_generator.hpp"
-using namespace std;
-
 int main()
-{   gen::document_generator kek{5,3};
-    cout << kek.Getdepth() << endl;
-    return 0;
+{
+   YAML::Emitter out;
+   out << "Hello, World!";
+
+   std::cout << "Here's the output YAML:\n" << out.c_str(); // prints "Hello, World!"
+   return 0;
 }
