@@ -31,4 +31,9 @@ pip3 install wheel sphinx git+http://github.com/return42/linuxdoc.git sphinx\_rt
 0. make
 0. make check
 0. make install
+0. add in CMAKE_PREFIX_PATH: \<path to prefix>\
+0. add in your CMakeLists.txt: \ 
+find_package(PkgConfig REQUIRED) \
+pkg_check_modules(fyaml REQUIRED IMPORTED_TARGET libfyaml) \
+target_link_libraries(${PROJECT_NAME} PRIVATE PkgConfig::fyaml) \
 
