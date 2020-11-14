@@ -12,7 +12,7 @@ installing and making yaml-cpp:
 0. add in CMAKE_PREFIX_PATH: \<path to prefix>\
 0.add in your CMakeLists.txt:
 \
-find_package(yaml-cpp)
+find_package(yaml-cpp) \
 target_link_libraries(${PROJECT_NAME} PRIVATE  yaml-cpp)
 
 
