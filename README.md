@@ -15,4 +15,15 @@ installing and making yaml-cpp:
 find_package(yaml-cpp) \
 target_link_libraries(${PROJECT_NAME} PRIVATE  yaml-cpp)
 
+installing and making libfyaml:
+
+0. dir \< path to source directory \>
+0. git clone git@github.com:pantoniou/libfyaml.git
+0. cd libfyaml.
+0. install Prerequisites: \ 
+sudo apt-get install gcc autoconf automake libtool git make libltdl-dev pkg-config \
+sudo apt-get install libyaml-dev \ 
+sudo apt-get install check \
+sudo apt-get install python3 python3-pip python3-setuptools \
+pip3 install wheel sphinx git+http://github.com/return42/linuxdoc.git sphinx\_rtd\_theme sphinx-markdown-builder 
 
