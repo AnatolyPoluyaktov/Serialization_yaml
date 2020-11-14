@@ -10,8 +10,8 @@ installing and making yaml-cpp:
 0. open CMakeCache.txt and edit in it:CMAKE_INSTALL_PREFIX:PATH: \<absolute path to yaml-cpp \>/prefix (optional)
 0. ninja -v install
 0. add in CMAKE_PREFIX_PATH: \<path to prefix>\
-0.add in your CMakeLists.txt :
-
+0.add in your CMakeLists.txt:
+\
 find_package(yaml-cpp)
 target_link_libraries(${PROJECT_NAME} PRIVATE  yaml-cpp)
 
