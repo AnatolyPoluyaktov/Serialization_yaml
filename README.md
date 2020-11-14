@@ -26,4 +26,9 @@ sudo apt-get install libyaml-dev \
 sudo apt-get install check \
 sudo apt-get install python3 python3-pip python3-setuptools \
 pip3 install wheel sphinx git+http://github.com/return42/linuxdoc.git sphinx\_rtd\_theme sphinx-markdown-builder 
+0. ./bootstrap.sh
+0. ./configure --prefix /home/batman/CppWorkspace/Serialization_yaml/libfyaml/prefix
+0. make
+0. make check
+0. make install
 
