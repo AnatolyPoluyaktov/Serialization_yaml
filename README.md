@@ -20,7 +20,7 @@ installing and making libfyaml:
 0. dir \< path to source directory \>
 0. git clone git@github.com:pantoniou/libfyaml.git
 0. cd libfyaml.
-0. install Prerequisites: \ 
+0. install Prerequisites: \ \
 sudo apt-get install gcc autoconf automake libtool git make libltdl-dev pkg-config \
 sudo apt-get install libyaml-dev \ 
 sudo apt-get install check \
