@@ -2,7 +2,10 @@ cmake_minimum_required(VERSION 3.5 FATAL_ERROR)
 
 project(laba1 LANGUAGES CXX)
 
-add_executable(laba1 main.cpp document_generator.hpp document_generator.cpp)
+add_executable(laba1 main.cpp document_generator.hpp
+    document_generator.cpp
+    serialization_deserialization.hpp
+    serialization_deserialization.cpp)
 find_package(yaml-cpp)
 target_link_libraries(${PROJECT_NAME} PRIVATE  yaml-cpp)
 
