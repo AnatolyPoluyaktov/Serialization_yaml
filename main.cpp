@@ -21,18 +21,8 @@
 int main()
 {
 
-   yaml_parser_t parser;
-   yaml_event_t event;
-   yaml_parser_initialize(&parser);
-
-   YAML::Emitter out;
-   //out << "Hello, World!";
-
-   //std::cout << "Here's the output YAML:\n" << out.c_str(); // prints "Hello, World!"
-   //printf("%s\n", fy_library_version());
-
-   //YAML::Node doc =YAML::LoadFile("test.yaml");
-    gen::gen_yaml_file(100,100);
-
+   gen::yaml_document kek(10,10);
+   kek.gen_yaml_doc();
+    kek.serialization();
    return 0;
 }
