@@ -21,6 +21,6 @@ namespace serial
     }
     struct fy_document* fy_deserialization(std::string filename)
     {
-
+        return fy_document_build_from_file(NULL, filename.c_str());
     }
 }
