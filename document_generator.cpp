@@ -37,14 +37,15 @@ int yaml_document::get_random_number()
             this->doc2[head].push_back(gen_random_str(get_random_number()));
         }
     }
+
     std::string file_name = "yaml_test" + std::to_string(this->len) +
             "x" + std::to_string(this->dep) +".yaml";
      YAML::Emitter emitter;
      emitter << this->doc2;
 
-     printf("%s",emitter.c_str());
-
-     this->doc1 = fy_document_build_from_string(NULL,emitter.c_str(),strlen(emitter.c_str()));
+     //printf("%s",emitter.c_str());
+      this->buf = emitter.c_str();
+     this->doc1 = fy_document_build_from_string(NULL,buf.c_str(),strlen(buf.c_str()));
 
     this->file_name = file_name;
 }

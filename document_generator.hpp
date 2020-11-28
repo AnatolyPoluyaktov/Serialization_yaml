@@ -33,6 +33,7 @@ namespace gen
        struct fy_document* doc1;
        YAML::Node doc2;
        std::string file_name;
+       std::string buf;
        int len;
        int dep;
    };

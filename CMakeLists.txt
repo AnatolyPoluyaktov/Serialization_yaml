@@ -6,13 +6,13 @@ add_executable(laba1 main.cpp document_generator.hpp
     document_generator.cpp
     serialization_deserialization.hpp
     serialization_deserialization.cpp)
-find_package(yaml-cpp)
+find_package(yaml-cpp REQUIRED)
 target_link_libraries(${PROJECT_NAME} PRIVATE  yaml-cpp)
 
 find_package(PkgConfig REQUIRED)
 pkg_check_modules(fyaml REQUIRED IMPORTED_TARGET libfyaml)
 target_link_libraries(${PROJECT_NAME} PRIVATE PkgConfig::fyaml)
-find_package(PkgConfig REQUIRED)
+
 pkg_check_modules(libyaml REQUIRED IMPORTED_TARGET yaml-0.1)
 
 target_link_libraries(${PROJECT_NAME} PRIVATE PkgConfig::libyaml)
