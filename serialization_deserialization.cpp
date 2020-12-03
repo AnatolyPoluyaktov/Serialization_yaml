@@ -31,7 +31,9 @@ namespace serial
         file = fopen(filename.c_str(), "w");
         yaml_emitter_set_output_file(&emitter, file);
         yaml_emitter_dump(&emitter,document);
+        yaml_emitter_close(&emitter);
         yaml_emitter_delete(&emitter);
+        yaml_document_delete(document);
 
     }
     yaml_document_t libyaml_deserialization(const std::string filename)
