@@ -9,6 +9,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <assert.h>
+#include "serialization_deserialization.hpp"
 //static void BM_StringCreation(benchmark::State& state) {
 //  for (auto _ : state)
 //    std::string empty_string;
@@ -32,7 +33,14 @@ int main()
    //printf("%s\n", fy_library_version());
 
    //YAML::Node doc =YAML::LoadFile("test.yaml");
-    gen::gen_yaml_file(100,100);
-
-   return 0;
+   yaml_document_t kek;
+    kek = serial::libyaml_deserialization("yaml_test10x10.yaml");
+    serial::libyaml_serialization(&kek,"libyaml_test_10x10.yaml");
+    YAML::Node doc;
+    doc = serial::deserialization("libyaml_test_10x10.yaml");
+    serial::serialization(doc,"kek.yaml");
+    struct fy_document* doc2;
+    doc2 = serial::fy_deserialization("libyaml_test_10x10.yaml");
+    serial::fy_serialization(doc2,"lol.yaml");
+    return 0;
 }
