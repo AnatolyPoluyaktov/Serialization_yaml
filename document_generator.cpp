@@ -2,28 +2,25 @@
 namespace gen{
 std::string gen_random_str(const int len) {
 
-        std::string tmp_s;
-        static const char alphanum[] =
-            "0123456789"
-            "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-            "abcdefghijklmnopqrstuvwxyz";
+    std::string str("0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz");
 
-        srand( (unsigned) time(NULL) * getpid());
+        std::random_device rd;
+        std::mt19937 generator(rd());
 
-        tmp_s.reserve(len);
+        std::shuffle(str.begin(), str.end(), generator);
 
-        for (int i = 0; i < len; ++i)
-            tmp_s += alphanum[rand() % (sizeof(alphanum) - 1)];
-
-
-        return tmp_s;
+        return str.substr(1, len);
 
     }
 
 int get_random_number()
 {
+    std::random_device r;
+    std::default_random_engine e1(r());
+    std::uniform_int_distribution<int> uniform_dist(1, 1000);
+    int mean = uniform_dist(e1);
+    return mean;
 
-    return (1 + rand() % 200);
 }
  void gen_yaml_file(int len, int dep)
  {

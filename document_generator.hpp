@@ -7,6 +7,7 @@
 #include <stdlib.h>
 #include "yaml-cpp/yaml.h"
 #include <fstream>
+#include <random>
 namespace gen
 {
  std::string gen_random_str(const int len);
