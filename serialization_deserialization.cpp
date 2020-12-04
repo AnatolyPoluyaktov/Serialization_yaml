@@ -1,25 +1,25 @@
 #include "serialization_deserialization.hpp"
 namespace serial
 {
-    void serialization(YAML::Node &document, std::string filename)
+    void serialization( const YAML::Node &document, const std::string filename)
     {
         std::ofstream fout (filename);
         fout << document;
     }
 
-    YAML::Node deserialization(std::string filename)
+    YAML::Node deserialization( const std::string filename)
     {
         YAML::Node document = YAML::LoadFile(filename);
         return document;
     }
 
-    void fy_serialization(struct fy_document* document, std::string filename)
+    void fy_serialization(struct fy_document* document, const std::string filename)
     {    FILE* file;
          file = fopen(filename.c_str(), "w");
          fy_emit_document_to_fp(document, FYECF_DEFAULT, file);
          fclose(file);
     }
-    struct fy_document* fy_deserialization(std::string filename)
+    struct fy_document* fy_deserialization(const std::string filename)
     {
         return fy_document_build_from_file(NULL, filename.c_str());
     }
