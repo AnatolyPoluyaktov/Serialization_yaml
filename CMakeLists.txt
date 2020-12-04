@@ -5,7 +5,9 @@ project(laba1 LANGUAGES CXX)
 add_executable(laba1 main.cpp document_generator.hpp
     document_generator.cpp
     serialization_deserialization.hpp
-    serialization_deserialization.cpp)
+    serialization_deserialization.cpp
+    benchmark.hpp
+    benchmark.cpp)
 find_package(yaml-cpp)
 target_link_libraries(${PROJECT_NAME} PRIVATE  yaml-cpp)
 
