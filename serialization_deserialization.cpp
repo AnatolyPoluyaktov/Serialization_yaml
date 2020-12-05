@@ -9,7 +9,7 @@ namespace serial
         fout << document;
     }
 
-    YAML::Node deserialization( std::string filename)
+    YAML::Node deserialization( const std::string filename)
     {
         YAML::Node document = YAML::LoadFile(filename);
         return document;
@@ -49,9 +49,7 @@ namespace serial
 
                FILE *file;
                yaml_parser_t parser;
-               yaml_event_t event;
-               int done = 0;
-               int count = 0;
+
                file = fopen(filename.c_str(), "rb");
                yaml_parser_initialize(&parser);
                yaml_parser_set_input_file(&parser, file);

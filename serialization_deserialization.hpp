@@ -11,7 +11,7 @@
 namespace serial {
 
 void serialization(YAML::Node &document,const std::string filename,benchmark::State &state);
-YAML::Node deserialization(std::string filename);
+YAML::Node deserialization(const std::string filename);
 
 void fy_serialization(struct fy_document *document, const char *filename, benchmark::State &state);
 struct fy_document* fy_deserialization(const char *filename);
