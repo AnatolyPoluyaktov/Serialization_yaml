@@ -39,4 +39,9 @@ target_link_libraries(${PROJECT_NAME} PRIVATE PkgConfig::fyaml) \
 
 
 
-![alt text](https://github.com/AnatolyPoluyaktov/Serialization_yaml/blob/main/%D0%BE%D0%B1%D1%89%D0%B8%D0%B9.jpg "Desirialization")
+![alt text](https://github.com/AnatolyPoluyaktov/Serialization_yaml/blob/main/Serial.jpg)
+
+![alt text](https://github.com/AnatolyPoluyaktov/Serialization_yaml/blob/main/Deserial.jpg)
+
+
+![alt text](https://github.com/AnatolyPoluyaktov/Serialization_yaml/blob/main/common.jpg)
