@@ -44,6 +44,7 @@ static void BM_TEST_LIBFYAML_SERIALIZATION(benchmark::State &state)
             "x" + std::to_string(i) +".yaml";
     struct fy_document* document = serial::fy_deserialization(filename);
      filename = "./output/"+filename;
+     std::cout<<i;
     for(auto _ : state)
     {
         serial::fy_serialization(document,filename);
@@ -67,23 +68,28 @@ static void BM_TEST_LIBYAML_DESERIALIZATION(benchmark::State &state)
 
 static void BM_TEST_LIBYAML_SERIALIZATION(benchmark::State &state)
 {
+
     int i = state.range(0);
     std::string filename = "yaml_test" + std::to_string(i) +
             "x" + std::to_string(i) +".yaml";
-
     yaml_document_t document = serial::libyaml_deserialization(filename);
      filename = "./output/"+filename;
-     for(auto _ : state){
-     serial::libyaml_serialization(&document,filename);
+    for(auto _ : state)
+    {
+        serial::libyaml_serialization(&document,filename);
     }
+    yaml_document_delete(&document);
+
+
+
 }
 
 
-
+BENCHMARK(BM_TEST_LIBYAML_SERIALIZATION)->DenseRange(10,290,10);
 //BENCHMARK(BM_TEST_YAMLCPP_DESERIALIZATION)->DenseRange(10,290,10);
 //BENCHMARK(BM_TEST_YAMLCPP_SERIALIZATION)->DenseRange(10,290,10);
 //BENCHMARK(BM_TEST_LIBFYAML_DESERIALIZATION)->DenseRange(10,290,10);
-BENCHMARK(BM_TEST_LIBFYAML_SERIALIZATION)->DenseRange(10,290,10);
+//BENCHMARK(BM_TEST_LIBFYAML_SERIALIZATION)->DenseRange(10,290,10);
 //BENCHMARK(BM_TEST_LIBYAML_DESERIALIZATION)->DenseRange(30,290,10);
-//BENCHMARK(BM_TEST_LIBYAML_SERIALIZATION)->DenseRange(10,290,10);
+
 BENCHMARK_MAIN();

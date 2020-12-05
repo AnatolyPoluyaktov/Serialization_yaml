@@ -30,14 +30,14 @@
 //   YAML::Emitter out;
 // /*  //out << "Hello, World!";
 //   for (int i = 10; i < 300; i+=10)
-//   {
-//       std::string filename = "yaml_test" + std::to_string(i) +
-//               "x" + std::to_string(i) +".yaml";
+//       {
+//           std::string filename = "yaml_test" + std::to_string(i) +
+//                   "x" + std::to_string(i) +".yaml";
 
-//       yaml_document_t document = serial::libyaml_deserialization(filename);
-//        filename = "./output/"+filename;
-//        serial::libyaml_serialization(&document,filename);
-//   }
+//           yaml_document_t document = serial::libyaml_deserialization(filename);
+//            filename = "./output/"+filename;
+//            serial::libyaml_serialization(&document,filename);
+//       }
 //   std::cout << "Here's the output YAML:\n" << out.c_str(); // prints "Hello, World!"
 //   printf("%s\n", fy_library_version());
 
