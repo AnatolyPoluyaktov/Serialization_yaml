@@ -37,7 +37,7 @@
 //           yaml_document_t document = serial::libyaml_deserialization(filename);
 //            filename = "./output/"+filename;
 //            serial::libyaml_serialization(&document,filename);
-//       }
+      // }
 //   std::cout << "Here's the output YAML:\n" << out.c_str(); // prints "Hello, World!"
 //   printf("%s\n", fy_library_version());
 

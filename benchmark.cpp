@@ -44,7 +44,7 @@ static void BM_TEST_LIBFYAML_SERIALIZATION(benchmark::State &state)
             "x" + std::to_string(i) +".yaml";
     struct fy_document* document = serial::fy_deserialization(filename);
      filename = "./output/"+filename;
-     std::cout<<i;
+
     for(auto _ : state)
     {
         serial::fy_serialization(document,filename);
@@ -72,13 +72,19 @@ static void BM_TEST_LIBYAML_SERIALIZATION(benchmark::State &state)
     int i = state.range(0);
     std::string filename = "yaml_test" + std::to_string(i) +
             "x" + std::to_string(i) +".yaml";
-    yaml_document_t document = serial::libyaml_deserialization(filename);
-     filename = "./output/"+filename;
+//    yaml_document_t document = serial::libyaml_deserialization(filename);
+//     filename = "./output/"+filename;
     for(auto _ : state)
-    {
-        serial::libyaml_serialization(&document,filename);
+    {   state.PauseTiming();
+        yaml_document_t document = serial::libyaml_deserialization(filename);
+         std::string u = "./output/"+filename;
+         state.ResumeTiming();
+        serial::libyaml_serialization(&document,u);
+        state.PauseTiming();
+        yaml_document_delete(&document);
+        state.ResumeTiming();
     }
-    yaml_document_delete(&document);
+
 
 
 
