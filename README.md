@@ -37,7 +37,6 @@ find_package(PkgConfig REQUIRED) \
 pkg_check_modules(fyaml REQUIRED IMPORTED_TARGET libfyaml) \
 target_link_libraries(${PROJECT_NAME} PRIVATE PkgConfig::fyaml) \
 
-графики: \
-![alt text](https://github.com/AnatolyPoluyaktov/Serialization_yaml/blob/main/AkbnCw0Djh8.jpg "Serialization")
-![alt text](https://github.com/AnatolyPoluyaktov/Serialization_yaml/blob/main/MrdP1VdKKIQ.jpg "Desirialization")
+
+
 ![alt text](https://github.com/AnatolyPoluyaktov/Serialization_yaml/blob/main/%D0%BE%D0%B1%D1%89%D0%B8%D0%B9.jpg "Desirialization")
