@@ -7,7 +7,6 @@
 #include <fstream>
 #include <stdio.h>
 #include "yaml.h"
-#include <benchmark/benchmark.h>
 namespace serial {
 
 void serialization(YAML::Node &document,const std::string filename,benchmark::State &state);
