@@ -39,8 +39,8 @@ namespace serial
         state.ResumeTiming();
         yaml_emitter_dump(&emitter,document);
         state.PauseTiming();
-//       yaml_emitter_close(&emitter);
-//        yaml_emitter_delete(&emitter);
+        yaml_emitter_close(&emitter);
+
         fclose(file);
         state.ResumeTiming();
     }
