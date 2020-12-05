@@ -49,8 +49,9 @@
 //    doc = serial::deserialization("libyaml_test_500x500.yaml");
 //    serial::serialization(doc,"kek.yaml");
 //    struct fy_document* doc2;
-//    doc2 = serial::fy_deserialization("libyaml_test_500x500.yaml");
-//    serial::fy_serialization(doc2,"lol.yaml");
+//    doc2 = serial::fy_deserialization("libyaml_test_30x30.yaml");
+//    serial::fy_serialization(doc2,"aaaaa.yaml");
+//    std::cout<<gen::gen_random_str();
 //    std::cout << gen::gen_random_str(gen::get_random_number());
-//    return 0;
+//   return 0;
 //}

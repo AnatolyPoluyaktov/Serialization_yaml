@@ -10,8 +10,8 @@
 #include <random>
 namespace gen
 {
- std::string gen_random_str(const int len);
- int get_random_number();
+ std::string gen_random_str();
+
  void gen_yaml_file(int len, int dep);
 }
 #endif // DOCUMENT_GENERATOR_HPP

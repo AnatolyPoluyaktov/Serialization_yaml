@@ -2,9 +2,10 @@
 #include <istream>
 namespace serial
 {
-    void serialization( YAML::Node &document,  std::string filename)
-    {
+    void serialization( YAML::Node &document,  std::string filename,benchmark::State &state)
+    {   state.PauseTiming();
         std::ofstream fout (filename);
+        state.ResumeTiming();
         fout << document;
     }
 
@@ -14,37 +15,37 @@ namespace serial
         return document;
     }
 
-    void fy_serialization(struct fy_document* document, std::string filename)
-    {    FILE* file;
-         file = fopen(filename.c_str(), "w");
-         fy_emit_document_to_fp(document, FYECF_DEFAULT, file);
-         fclose(file);
+    void fy_serialization(struct fy_document *document, const char *filename, benchmark::State &state) {
+        state.PauseTiming();
+        FILE *file;
+        file = fopen(filename, "wb");
+        state.ResumeTiming();
+        fy_emit_document_to_fp(document, FYECF_DEFAULT, file);
+        state.PauseTiming();
+        fclose(file);
+        state.ResumeTiming();
     }
-    struct fy_document* fy_deserialization( std::string filename)
-    {
-        return fy_document_build_from_file(NULL, filename.c_str());
+     struct fy_document* fy_deserialization( const char *filename) {
+        return fy_document_build_from_file(NULL, filename);
     }
-    void libyaml_serialization(yaml_document_t* document,std::string filename)
-    {
+    void libyaml_serialization(yaml_document_t* document,std::string filename,benchmark::State &state)
+    {   state.PauseTiming();
         FILE* file;
         yaml_emitter_t emitter;
         yaml_emitter_initialize(&emitter);
 
         file = fopen(filename.c_str(), "w");
-        if (file==NULL){
-            perror("ohhh");
-        }
         yaml_emitter_set_output_file(&emitter, file);
+        state.ResumeTiming();
         yaml_emitter_dump(&emitter,document);
-        yaml_emitter_close(&emitter);
-        yaml_emitter_delete(&emitter);
-
-        yaml_document_delete(document);
+        state.PauseTiming();
+//       yaml_emitter_close(&emitter);
+//        yaml_emitter_delete(&emitter);
         fclose(file);
-
+        state.ResumeTiming();
     }
-    yaml_document_t libyaml_deserialization(std::string filename)
-       {
+    yaml_document_t libyaml_deserialization(std::string filename,benchmark::State &state)
+       {       state.PauseTiming();
 
                FILE *file;
                yaml_parser_t parser;
@@ -55,22 +56,14 @@ namespace serial
                yaml_parser_initialize(&parser);
                yaml_parser_set_input_file(&parser, file);
                yaml_document_t document;
-
+                state.ResumeTiming();
                yaml_parser_load(&parser, &document);
-
-               while (!done) {
-                   if (!yaml_parser_parse(&parser, &event)) {
-                       break;
-                   }
-
-                   done = (event.type == YAML_STREAM_END_EVENT);
-                   yaml_event_delete(&event);
-                   count++;
-               }
+               state.PauseTiming();
 
 
                yaml_parser_delete(&parser);
                fclose(file);
+               state.ResumeTiming();
                return document;
            }
     }

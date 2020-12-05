@@ -10,13 +10,13 @@
 #include <benchmark/benchmark.h>
 namespace serial {
 
-void serialization(YAML::Node &document, std::string filename);
+void serialization(YAML::Node &document,const std::string filename,benchmark::State &state);
 YAML::Node deserialization(std::string filename);
 
-void fy_serialization(struct fy_document* document,std::string filename);
-struct fy_document* fy_deserialization(std::string filename);
+void fy_serialization(struct fy_document *document, const char *filename, benchmark::State &state);
+struct fy_document* fy_deserialization(const char *filename);
 
-void libyaml_serialization(yaml_document_t* document,  std::string filename);
-yaml_document_t libyaml_deserialization(std::string filename);
+void libyaml_serialization(yaml_document_t* document,  std::string filename,benchmark::State &state);
+yaml_document_t libyaml_deserialization(const std::string filename,benchmark::State &state);
 }
 #endif // SERIALIZATION_DESERIALIZATION_HPP
